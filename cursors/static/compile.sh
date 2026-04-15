@@ -3,19 +3,19 @@ read number
 
 if [ "$number" == "1" ]; then
   DIRNAME="Kanade"
-  NAME="KanadeXCursor"
+  NAME="KanadeXcursor"
 elif [ "$number" == "2" ]; then
   DIRNAME="Mafuyu"
-  NAME="MafuyuXCursor"
+  NAME="MafuyuXcursor"
 elif [ "$number" == "3" ]; then
   DIRNAME="Ena"
-  NAME="EnaXCursor"
+  NAME="EnaXcursor"
 elif [ "$number" == "4" ]; then
   DIRNAME="Mizuki"
-  NAME="MizukiXCursor"
+  NAME="MizukiXcursor"
 elif [ "$number" == "5" ]; then
   DIRNAME="N25Miku"
-  NAME="N25MikuXCursor"
+  NAME="N25MikuXcursor"
 else
   echo "Invalid input. Exiting..."
   exit
@@ -76,4 +76,4 @@ if [ "$hyprcursorEnable" == "true" ]; then
   echo "Hyprcursor created!"
 fi
 
-printf "Check the output."
+echo "Check the output."
