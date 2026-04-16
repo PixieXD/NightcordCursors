@@ -24,6 +24,8 @@ fi
 printf "\nAlso create Hyprcursor icons? (true if yes)\n"
 read hyprcursorEnable
 
+DESCRIPTION="A Linux port of $DIRNAME's cursor from Nightcord at 25:00."
+
 set_cursors=("not-allowed" "default" "row-resize" "col-resize" "nw-resize" "ne-resize" "crosshair" "all-scroll" "pencil" "help" "pointer" "text" "wait" "progress" "up-arrow" "man")
 
 # Alias for set_cursors
@@ -42,21 +44,21 @@ text_alias=("xterm" "vertical-text")
 wait_alias=("watch")
 up_arrow_alias=("center_ptr")
 
-mkdir -p ./$NAME/cursors
-cat <<EOF >>./$NAME/index.theme
+mkdir -p ./${NAME}_static/cursors
+cat <<EOF >>./${NAME}_static/index.theme
 [Icon Theme]
-Name = $NAME
-Comment = A Linux port of $DIRNAME's cursor from Nightcord at 25:00.
+Name = ${NAME}_static
+Comment = $DESCRIPTION
 Inherits = breeze_cursors
 EOF
 
 cd ./$DIRNAME/cursor
 for cursor in "${set_cursors[@]}"; do
   xcursorgen $cursor.cursor $cursor
-  mv $cursor ../../$NAME/cursors
+  mv $cursor ../../${NAME}_static/cursors
 done
 
-cd ../../$NAME/cursors
+cd ../../${NAME}_static/cursors
 for cursor in "${set_cursors[@]}"; do
   alias_name="${cursor//-/_}_alias[@]"
   for alias_cursor in "${!alias_name}"; do
@@ -69,10 +71,16 @@ echo "XCursor created!"
 
 cd ../..
 if [ "$hyprcursorEnable" == "true" ]; then
-  hyprcursor-util -x $NAME --resize nearest
-  hyprcursor-util -c "extracted_$NAME"
-  mv theme_Extracted\ Theme "${DIRNAME}Hyprcursor"
-  rm -r "extracted_$NAME"
+  hyprcursor-util -x ${NAME}_static --resize nearest
+  hyprcursor-util -c "extracted_${NAME}_static"
+  mv theme_Extracted\ Theme "${DIRNAME}Hyprcursor_static"
+  rm -r "extracted_${NAME}_static"
+  cat > ./${DIRNAME}Hyprcursor_static/manifest.hl << EOF
+name = ${DIRNAME}Hyprcursor_static
+desciption = $DESCRIPTION
+version = 0.1
+cursors_directory = hyprcursors
+EOF
   echo "Hyprcursor created!"
 fi
 
