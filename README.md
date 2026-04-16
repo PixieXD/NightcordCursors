@@ -20,7 +20,7 @@ with finals.
 
 ### Preface:
 
-There are two .tar files, which are the `Hyprcursor and Xcursor` versions of
+There are four .tar files, which are the `Hyprcursor and Xcursor` versions of
 `Static & Animated` cursors, in which it includes the cursors of said members.
 You'll get it when you get to the
 [Releases Page](https://github.com/PixieXD/NightcordCursors/releases).
@@ -86,4 +86,3 @@ this _should_ work.
   and [`imagemagick`](https://github.com/ImageMagick/ImageMagick) for making the
   port process a "tad bit" easier.
 - My sanity for making this.
-
