@@ -33,7 +33,8 @@ be the exact name of the folder you moved to the `icons` folder. Eg. :
 
 1. Head over to the
    [Releases Page](https://github.com/PixieXD/NightcordCursors/releases) and
-   download the .tar file. Extract it.
+   download the .tar file. Extract it. Pick what cursors you like inside the
+   now-extracted folder.
 2. Move the contents to either `~/.local/share/icons` **(recommended)** or
    `~/.icons`
 
